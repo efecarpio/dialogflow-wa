@@ -102,3 +102,5 @@ dist
 
 # TernJS port file
 .tern-port
+wa-chatbot/functions/src/infra/config.ts
+wa-chatbot/functions/src/infra/mongoose/config.ts

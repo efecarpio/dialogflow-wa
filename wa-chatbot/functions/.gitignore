@@ -14,6 +14,10 @@ node_modules/
 .test_results/
 test-results.xml
 
+# Database
+lib/infra/config.ts
+lib/infra/mongoose/config.ts
+
 # Firebase config
 lib/firebase-config.json
 src/firebase-config.json
