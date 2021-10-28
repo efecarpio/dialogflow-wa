@@ -1,0 +1,29 @@
+# Compiled JavaScript files
+lib/**/*.js
+lib/**/*.js.map
+lib/infra/config.js
+lib/infra/config.js.map
+lib/infra/mongoose/config.js
+lib/infra/mongoose/config.js.map
+
+# TypeScript v1 declaration files
+typings/
+
+# Node.js dependency directory
+node_modules/
+.test_results/
+test-results.xml
+
+# Firebase config
+lib/firebase-config.json
+src/firebase-config.json
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/490Fgg6uPJedVf4qVGHhl7
+!.vscode/extensions.json
+*.code-workspace
+### VisualStudioCode Patch ###
