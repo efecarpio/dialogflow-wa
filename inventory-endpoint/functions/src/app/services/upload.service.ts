@@ -23,10 +23,14 @@ async function uploadFileToBucket(uploadData: any): Promise<any> {
       console.log("metadata=", metadata.mediaLink);
       return metadata.mediaLink;
     }).catch((error: any) => {
+      const errorMessage = { code: 500, message: error };
       console.error(error);
+      throw errorMessage;
     });
   } catch (err) {
+    const errorMessage = { code: 500, message: err };
     console.error("uploadFileToBucket", err);
+    throw errorMessage;
   }
 }
 

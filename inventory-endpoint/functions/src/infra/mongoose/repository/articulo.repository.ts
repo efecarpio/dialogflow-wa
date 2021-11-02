@@ -58,6 +58,14 @@ export class ArticuloRepository {
     }, articuloDto);
   }
 
+  async updateById(id: number, articuloDto: any) {
+    return await Articulo.updateOne(
+        { codart: id },
+        articuloDto,
+        { upsert: true },
+    );
+  }
+
   async saveMany(articulosDto: IArticulo[]): Promise<IArticulo[]> {
     return await Articulo.insertMany(articulosDto);
   }

@@ -43,6 +43,9 @@ const Articulo = new Schema({
   factor: {
     type: Number,
   },
+  image: {
+    type: String,
+  },
 });
 
 Articulo.pre("save", function(next) {

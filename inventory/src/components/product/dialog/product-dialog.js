@@ -1,3 +1,4 @@
+/* eslint-disable vue/no-mutating-props */
 import { useQuasar } from "quasar";
 import { defineComponent, ref } from 'vue';
 import httpCommon from 'src/boot/services/http-common';
@@ -35,25 +36,20 @@ export default defineComponent({
       this.isSubmitting = true;
 
       httpCommon.post('articulo', data)
-      .then(response => {
+      .then(async response => {
         const data = response.data;
 
         if (data.mensaje.type === 'success') {
           const id = data.data.codart;
           Object.assign(this.product, data.data);
 
-          this.uploadFile(id).then(uresponse => {
+          await this.uploadFile(id);
 
-            if (uresponse.data.mensaje.type === 'success') {
-
-              this.$q.notify({
-                color: 'green-4',
-                textColor: 'white',
-                icon: 'cloud_done',
-                message: 'El producto se ha registrado con éxito!'
-              });
-            }
-
+          this.$q.notify({
+            color: 'green-4',
+            textColor: 'white',
+            icon: 'cloud_done',
+            message: 'El producto se ha registrado con éxito!'
           });
 
           if (isNew) {
@@ -64,10 +60,17 @@ export default defineComponent({
       });
     },
 
-    uploadFile(id) {
-      const data = new FormData();
-      data.append('image', this.photo, this.photo.name);
-      return httpCommon.post(`articulo/upload/${id}`, data);
+    async uploadFile(id) {
+      if (this.photo !== null) {
+        const data = new FormData();
+        data.append('image', this.photo, this.photo.name);
+        await httpCommon.post(`articulo/upload/${id}`, data).then(response => {
+          const data = response.data;
+          if (data.mensaje.type === 'success') {
+            this.product.image = data.data.link;
+          }
+        });
+      }
     },
 
   },

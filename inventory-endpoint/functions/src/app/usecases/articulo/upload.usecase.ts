@@ -5,10 +5,6 @@ import { TYPES_REPOSITORIES } from "../../../core/types";
 import {
   IUploadFileArticuloUseCase,
 } from "../../handlers/articulo";
-import uploadFileToBucket from "../../services/upload.service";
-/* import {
-  IArticulo,
-} from "./../../../infra/mongoose/interfaces";*/
 
 import {
   ArticuloRepository,
@@ -24,30 +20,31 @@ export class UploadFileArticuloUseCase implements IUploadFileArticuloUseCase {
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   async execute(request: any): Promise<Result<any>> {
     try {
-      const files = request.files;
+      const link = request.files;
       const codigo = request.id;
       const errorMessage = { code: 403, message: "Articulo not found" };
 
       if (codigo === 0) {
         throw errorMessage;
       } else {
-        const articuloUpdated = await this.repository.findById(codigo);
-        if (articuloUpdated !== null && articuloUpdated !== undefined) {
-          return uploadFileToBucket(files).then(async (link: string) => {
-            articuloUpdated.imagen = link;
-            await this.repository.update(articuloUpdated);
-            return Result.ok<any>(articuloUpdated);
-          });
-        } else {
-          throw errorMessage;
+        if (link !== "") {
+          const articuloUpdated = await this.repository.updateById(
+              codigo, { $set: { image: link } }
+          );
+          if (articuloUpdated !== null && articuloUpdated !== undefined) {
+            return Result.ok<any>({ link: link });
+          } else {
+            throw errorMessage;
+          }
         }
+        return Result.ok<any>({ link: link });
       }
     } catch (e) {
       let errorMessage = "An error has ocurred";
       if (e instanceof Error) {
         errorMessage = e.message;
       }
-      const obj = "FindAllArticuloUseCase " + errorMessage;
+      const obj = "UploadFileArticuloUseCase " + errorMessage;
       return Result.fail<any>(obj);
     }
   }

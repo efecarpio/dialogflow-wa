@@ -9,5 +9,5 @@ export interface IArticulo {
   codprecan: string;
   codpreres: string;
   factor: number;
-  imagen: string;
+  image: string;
 }

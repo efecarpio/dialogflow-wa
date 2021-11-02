@@ -2,6 +2,7 @@ import { Container } from "inversify";
 import {
   TYPES_USECASE,
   TYPES_REPOSITORIES,
+  TYPES_MIDDLEWARE,
 } from "./types";
 
 import {
@@ -19,6 +20,9 @@ import {
   StockRepository,
   OrderRepository,
 } from "../infra/mongoose/repository";
+import {
+  UploadFileMiddleware,
+} from "../app/middleware/upload.middleware";
 
 // Inicializa el container
 export const container = new Container();
@@ -38,3 +42,6 @@ container.bind(TYPES_USECASE.FindAllStockUseCase).to(FindAllStockUseCase);
 container.bind(TYPES_REPOSITORIES.ArticuloRepository).to(ArticuloRepository);
 container.bind(TYPES_REPOSITORIES.StockRepository).to(StockRepository);
 container.bind(TYPES_REPOSITORIES.OrderRepository).to(OrderRepository);
+
+// ----- MIDDELWARES -----
+container.bind(TYPES_MIDDLEWARE.UploadFileMiddleware).to(UploadFileMiddleware);
