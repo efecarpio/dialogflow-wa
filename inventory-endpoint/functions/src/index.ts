@@ -49,4 +49,4 @@ app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-exports.iapi = functions.https.onRequest(app);
+exports.inventory = functions.https.onRequest(app);
