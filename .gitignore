@@ -104,3 +104,6 @@ dist
 .tern-port
 wa-chatbot/functions/src/infra/config.ts
 wa-chatbot/functions/src/infra/mongoose/config.ts
+inventory/src/boot/services/http-common.js
+inventory-endpoint/functions/lib/firebase-config.json
+inventory-endpoint/functions/src/firebase-config.json
