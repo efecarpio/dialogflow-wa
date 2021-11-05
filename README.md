@@ -10,7 +10,7 @@ By [Edwin Carpio](mailto:edwin.carpio@xcelsa.com.ec)
 ## Instructions
 1. Navigate to [repo](https://github.com/efecarpio/dialogflow-wa/wa-chatbot)
 2. Clone locally using
-   `git clone git@github.com:janephilipps/tic-tac-toe.git`
+   `git clone git@github.com:efecarpio/dialogflow-wa.git`
 3. Create a firebase account and login
    `npm install -g firebase-tools`
 4. (wa-chatbot): Initialize the project using `firebase login`
