@@ -18,8 +18,6 @@ async function exportToFile(orders: string): Promise<void> {
       destination: `exports/${fileName}`,
       public: true,
     });
-    /* const [metadata] = file.getMetadata();
-    return metadata.mediaLink;*/
   } catch (err) {
     console.error("exportToFile", err);
   }

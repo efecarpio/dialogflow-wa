@@ -29,8 +29,6 @@ export class DatabaseService {
 
   public async getRepository<T>(repository: ObjectType<T>) {
     const connection = await this.getConnection();
-    // if (connection) {
     return await connection.getCustomRepository<T>(repository);
-    // }
   }
 }

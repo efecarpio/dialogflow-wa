@@ -19,7 +19,6 @@ export class GetOrderController {
   @httpGet("/:order")
   public async index(req: Request, res: Response) {
     try {
-      // const query = req.query;
       const orderNumber = Number(req.params.order);
       const result = await this.usecase.execute(
           new FetchDocumentRequest(orderNumber)

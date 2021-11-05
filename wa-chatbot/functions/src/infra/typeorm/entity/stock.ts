@@ -12,12 +12,6 @@ import { Articulo } from "./articulo";
  * @class Stock
  */
 export class Stock {
-  /* @Column()
-  descrip!: string;
-  @Column()
-  resto!: number;
-  @Column()
-  peso!: number;*/
   @Column()
   stock!: number;
   @Column()
@@ -25,9 +19,4 @@ export class Stock {
 
   @Column((type: Partial<Articulo>) => Articulo)
   codart: Partial<Articulo>;
-
-  /* @ManyToOne(() => Articulo,
-  (identificador: Articulo) => identificador.codart)
-  @JoinColumn({ name: "codart" })
-  codart!: Articulo;*/
 }

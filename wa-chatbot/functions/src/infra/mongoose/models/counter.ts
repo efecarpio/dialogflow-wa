@@ -48,9 +48,4 @@ export function autoIncrementModel(
     doc.seq = seq;
     doc.save();
   });
-  /* counterModel.findByIdAndUpdate(
-      modelName,
-      { seq: seq },
-      { new: true, upsert: true },
-  );*/
 }

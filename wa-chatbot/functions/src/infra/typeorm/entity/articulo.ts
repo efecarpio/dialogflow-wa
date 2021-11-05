@@ -3,7 +3,6 @@ import {
   ObjectIdColumn,
   Column,
 } from "typeorm";
-// import { Stock } from "./stock";
 
 @Entity("articulos")
 /**
@@ -35,7 +34,4 @@ export class Articulo {
   codpreres!: string;
   @Column()
   factor!: number;
-
-  /* @OneToMany(() => Stock, (identificador: Stock) => identificador.codart)
-  stock!: Stock[];*/
 }

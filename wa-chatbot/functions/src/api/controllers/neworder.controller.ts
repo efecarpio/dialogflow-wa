@@ -5,7 +5,6 @@ import StatusCodes from "http-status-codes";
 import BasePresenter from "../base/basePresenter";
 import { TYPES_USECASE } from "../../core/types";
 import { INewOrderUseCase } from "../../app/handlers";
-// import FetchDocumentRequest from "../request/fetch-document.request";
 
 @controller("/order")
 export class NewOrderController {
