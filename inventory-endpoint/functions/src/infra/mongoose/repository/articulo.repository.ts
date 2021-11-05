@@ -31,20 +31,6 @@ export class ArticuloRepository {
       filter = { chat: filtros };
     }
     return await Articulo.find(filter).exec();
-    /* return new Promise((resolve, reject) => {
-      let filter = {};
-      if (filtros !== null) {
-        filter = { chat: filtros };
-      }
-      Articulo.find(filter).exec((error: any, populated: any) => {
-        if (error) {
-          reject(error);
-          return false;
-        }
-        resolve(populated);
-        return true;
-      });
-    });*/
   }
 
   async save(articuloDto: IArticulo): Promise<IArticulo> {
@@ -71,9 +57,6 @@ export class ArticuloRepository {
   }
 
   async findStock(params: any): Promise<any[]> {
-    /* const filter = (params.name !== "") ?
-      { descrip: { $regex: params.name, $options: "i" } } : {};*/
-
     const options = [{
       $lookup: {
         from: "stocks",

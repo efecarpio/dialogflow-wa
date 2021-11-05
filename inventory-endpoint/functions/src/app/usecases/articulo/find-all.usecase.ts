@@ -23,7 +23,6 @@ export class FindAllArticuloUseCase implements IFindAllArticuloUseCase {
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   async execute(request: any): Promise<Result<IArticulo[]>> {
     try {
-      // const result = await this.repository.findAll({});
       return await this.repository.findStock(request).then((response: any) => {
         return Result.ok<any>(response);
       });

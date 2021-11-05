@@ -37,9 +37,6 @@ server.setConfig((app1) => {
 });
 
 connect();
-/* container.get<DatabaseService>(TYPES_SERVICES.DatabaseService)
-    .getConnection().then();*/
-
 const main = server.build();
 const app = express();
 

@@ -20,7 +20,6 @@ async function uploadFileToBucket(uploadData: any): Promise<any> {
       return file.getMetadata();
     }).then((results: any) => {
       const metadata = results[0];
-      console.log("metadata=", metadata.mediaLink);
       return metadata.mediaLink;
     }).catch((error: any) => {
       const errorMessage = { code: 500, message: error };

@@ -10,20 +10,6 @@ export class HelpersBase {
   }
 
   requestBody(field: string): any {
-    /* this._req.on("data", data => {
-      // Decode and parse data
-      const parsedData = decodeURIComponent(data).split("&")
-
-      for (let data of parsedData) {
-        const decodedData = decodeURIComponent(data.replace(/\+/g, "%20"));
-        const [key, value] = decodedData.split("=");
-        // Accumulate submitted
-        // data in an object
-        // const formData[key] = value
-        const formData = key;
-      }
-    });
-    this._req.emit("data");*/
     const body = this._req.body;
     const bodyString = JSON.stringify(body);
     const bufferOriginal = Buffer.from(JSON.parse(bodyString).data);

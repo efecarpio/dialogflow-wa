@@ -19,8 +19,6 @@ export class FindAllArticuloController {
   @httpGet("/")
   public async index(req: Request, res: Response) {
     try {
-      // const filter = (req.query.name !== undefined) ?
-      // req.query.name : "";
       const filter = req.query;
       const result = await this.usecase.execute(filter);
 

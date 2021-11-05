@@ -10,13 +10,6 @@ export class StockRepository {
     return await Stock.findOne({
       "articulo.codart": order,
     });
-
-    /* return query.then((data: any[]) => {
-      return data;
-    })
-    .catch((error: Error) => {
-        throw "StockRepository getOrderById " + error;
-    });*/
   }
 
   async findAll(filtros: any): Promise<unknown> {
