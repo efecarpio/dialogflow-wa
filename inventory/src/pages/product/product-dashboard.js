@@ -66,14 +66,6 @@ export default {
       httpCommon.get(`articulo?${query}`).then(response => {
         const data = response.data;
         this.products = data.data;
-        /* this.products = data.data.map(lista => {
-          return {
-            id: lista._id,
-            stock: lista.stock,
-            name: lista.articulo.descrip,
-            price: lista.articulo.valor
-          }
-        });*/
       });
     },
 
